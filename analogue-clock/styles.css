@@ -1,41 +1,62 @@
-/* compiled css from scss */
 :root {
   --font-display: "Limelight", serif;
   --font-body: "Limelight", serif;
 
-  --color-bg: #e42d20;
-  --color-title: #f3d8d4;
-  --color-subtitle: #f6dbd6;
-  --color-text-shadow: rgba(88, 11, 11, 0.45);
+/* color palette - only change here */
+/* GOLDEN VIBRANCE — BRIGHT STYLE */
+--background: #ffb700;          /* vibrant golden saffron */
+--outerFace: #fff3d6;           /* soft champagne surface */
+--outerFace-mid: #ffe7b3;
+--outerFace-deep: #ffd166;
+--edge: #e09f1f;                /* rich amber separator */
 
-  --color-clock-shell: #eedad8;
-  --color-shell-shadow: #ca6c64;
-  --color-clock-shadow: rgba(0, 0, 0, 0.5);
+--text: #ffffff;
+--text-soft: #fff9ea;
+--text-muted: #ffe693; /* color of the numbers */
 
-  --color-ring-grad-1: #ca6c64;
-  --color-ring-grad-2: #e1c2bd;
-  --color-ring-grad-3: #d8a49e;
-  --color-ring-bg: #e1c2bd;
 
-  --color-dial-bg: #e42d20;
-  --color-dial-inner-shadow: rgba(0, 0, 0, 0.6);
-  --color-dial-outer-highlight: #ffffff;
+--light: #ffffff;
+--shadow: #000000;
+--color-second-hand: var(--outerFace-mid);
+--color-hour-hand: #000f74;
+--color-minute-hand: #176cffed;
 
-  --color-number: #f2d3cf;
-  --color-number-shadow: rgba(88, 11, 11, 0.35);
+/* END. */
+--color-bg: var(--background);
+--color-title: var(--text);
+--color-subtitle: var(--text-soft);
 
-  --color-pin-grad-1: #eedad8;
-  --color-pin-grad-2: #ca6c64;
-  --color-pin-bg: #eedad8;
-  --color-pin-shadow: rgba(0, 0, 0, 0.5);
-  --color-pin-inner-bg: #e1c2bd;
-  --color-pin-inner-shadow: rgba(167, 23, 10, 0.4);
+/* was rgba(88, 11, 11, 0.45) */
+--color-text-shadow: color-mix(in srgb, var(--background) 45%, --shadow);
+--color-clock-shell: var(--outerFace);
+--color-shell-shadow: var(--edge);
+--color-clock-shadow: color-mix(in srgb, var(--shadow) 50%, transparent);
+--color-ring-grad-1: var(--edge);
+--color-ring-grad-2: var(--outerFace-mid);
+--color-ring-grad-3: var(--outerFace-deep);
+--color-ring-bg: var(--outerFace-mid);
 
-  --color-second-hand: #e1c2bd;
-  --color-hour-hand: #4d1302;
-  --color-minute-hand: #ffc12fed;
-  --color-hand-shadow-strong: rgba(0, 0, 0, 0.5);
-  --color-hand-shadow-soft: rgba(0, 0, 0, 0.4);
+/* dial */
+--color-dial-bg: var(--background);
+
+/* was rgba(0, 0, 0, 0.6) */
+--color-dial-inner-shadow: color-mix(in srgb, var(--shadow) 60%, transparent);
+--color-dial-outer-highlight: var(--light);
+--color-number: var(--text-muted);
+--color-number-shadow: color-mix(in srgb, var(--background) 35%, var(--shadow));
+
+/* pin */
+--color-pin-grad-1: var(--outerFace);
+--color-pin-grad-2: var(--edge);
+--color-pin-bg: var(--outerFace);
+
+--color-pin-shadow: color-mix(in srgb, var(--shadow) 50%, transparent);
+--color-pin-inner-bg: var(--outerFace-mid);
+--color-pin-inner-shadow: color-mix(in srgb, var(--edge) 95%, var(--shadow));
+
+
+--color-hand-shadow-strong: color-mix(in srgb, var(--shadow) 50%, transparent);/* was rgba(0, 0, 0, 0.4) */
+--color-hand-shadow-soft: color-mix(in srgb, var(--shadow) 40%, transparent);
 }
 
 *,
@@ -136,7 +157,7 @@ body {
   margin-top: -16px;
   text-align: center;
   font-family: var(--font-display);
-  font-size: 25px;
+  font-size: 36px;
   color: var(--color-number);
   text-shadow: 0 2px 5px var(--color-number-shadow);
   transform: rotate(calc(var(--i) * 30deg)) translateY(-124px)
@@ -189,7 +210,7 @@ body {
   z-index: 1;
   width: 13px;
   height: 120px;
-  margin: 25px 0 0 141px;
+  margin: 16px 0 0 141px;
   border-radius: 20px;
   transform-origin: 9px 130px;
   box-shadow: 8px 8px 12px 0 var(--color-hand-shadow-strong);
